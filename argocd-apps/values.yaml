@@ -9,6 +9,7 @@ git:
   repoUrl: "git@bitbucket.org:reltio-ondemand/compute-app.git"
   repoBranch: "feature/monorepo"
   addonDirPath: "apps-provider/addons/charts/*"
+  addonBaseDirPath: "apps-provider/addons/charts"
   repoAppBranch: "feature/monorepo"
   
 
