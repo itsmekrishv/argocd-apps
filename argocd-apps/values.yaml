@@ -11,5 +11,8 @@ git:
   addonDirPath: "apps-provider/addons/charts/*"
   addonBaseDirPath: "apps-provider/addons/charts"
   repoAppBranch: "feature/monorepo"
+  appBasePath: "reltio-cloud-envs"
+  appNSPath: "reltio-envs"
   
+  # https://bitbucket.org/reltio-ondemand/compute-app.git
 

@@ -23,9 +23,9 @@ spec:
           ignoreMissingValueFiles: true
           valueFiles:
             - 'values.yaml'
-            - '../../global-values/{{ .name }}/values.yaml'
-            - '../../global-values/{{ .name }}/values-aws.yaml'
-            - '../../../reltio-cloud-envs/aws/regions/us-east-1/foxtrot-spoke-cluster-1/addons/{{ "{{" }} path.basename {{ "}}" }}-values.yaml'
+            - '../../global-values/{{ "{{" }} path.basename {{ "}}" }}/values.yaml'
+            - '../../global-values/{{ "{{" }} path.basename {{ "}}" }}/values-aws.yaml'
+            - '../../../{{ .Values.git.appBasePath }}/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/addons/{{ "{{" }} path.basename {{ "}}" }}-values.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ "{{" }} path.basename {{ "}}" }}'

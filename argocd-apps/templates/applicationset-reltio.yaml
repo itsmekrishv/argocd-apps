@@ -9,7 +9,7 @@ spec:
         repoURL: {{ .Values.git.repoUrl | quote }}
         revision: {{ .Values.git.repoAppBranch | quote }}
         directories:
-          - path: 'apps-provider/reltio-cloud-envs/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/reltio-envs/*'
+          - path: 'apps-provider/{{ .Values.git.appBasePath }}/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/{{ .Values.git.appNSPath }}/*'
   template:
     metadata:
       name: '{{ "{{" }} path.basename {{ "}}" }}'
@@ -26,7 +26,7 @@ spec:
             - common-service-values.yaml
             - dataload-values.yaml
             - misc-values.yaml
-            - '../../apps-provider/reltio-cloud-envs/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/reltio-envs/{{ "{{" }} path.basename {{ "}}" }}/values.yaml'
+            - '../../apps-provider/{{ .Values.git.appBasePath }}/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/{{ .Values.git.appNSPath }}/{{ "{{" }} path.basename {{ "}}" }}/values.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ "{{" }} path.basename {{ "}}" }}' 
