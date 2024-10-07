@@ -12,23 +12,23 @@ spec:
         - path: {{ .Values.git.addonDirPath | quote }}
   template:
     metadata:
-      name: '{{ .name }}'
+      name: '{{ "{{" }} path.basename {{ "}}" }}'
     spec:
       project: default
       source:
         repoURL: {{ .Values.git.repoUrl | quote }}
         targetRevision: {{ .Values.git.repoBranch | quote }}
-        path: '{{ .Values.git.addonBaseDirPath }}/{{ .name }}'
+        path: '{{ "{{" }} path {{ "}}" }}'
         helm:
           ignoreMissingValueFiles: true
           valueFiles:
             - 'values.yaml'
             - '../../global-values/{{ .name }}/values.yaml'
             - '../../global-values/{{ .name }}/values-aws.yaml'
-            - '../../../reltio-cloud-envs/aws/regions/us-east-1/foxtrot-spoke-cluster-1/addons/{{ .name }}-values.yaml'
+            - '../../../reltio-cloud-envs/aws/regions/us-east-1/foxtrot-spoke-cluster-1/addons/{{ "{{" }} path.basename {{ "}}" }}-values.yaml'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ .name }}'
+        namespace: '{{ "{{" }} path.basename {{ "}}" }}'
       syncPolicy:
         automated:
           prune: true

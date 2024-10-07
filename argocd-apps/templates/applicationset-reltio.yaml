@@ -12,7 +12,7 @@ spec:
           - path: 'apps-provider/reltio-cloud-envs/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/reltio-envs/*'
   template:
     metadata:
-      name: '{{ .name }}'
+      name: '{{ "{{" }} path.basename {{ "}}" }}'
     spec:
       project: default
       source:
@@ -26,10 +26,10 @@ spec:
             - common-service-values.yaml
             - dataload-values.yaml
             - misc-values.yaml
-            - '../../apps-provider/reltio-cloud-envs/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/reltio-envs/{{ .name }}/values.yaml'
+            - '../../apps-provider/reltio-cloud-envs/{{ .Values.cloud }}/regions/{{ .Values.region }}/{{ .Values.clusterName }}/reltio-envs/{{ "{{" }} path.basename {{ "}}" }}/values.yaml'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{ .name }}'
+        namespace: '{{ "{{" }} path.basename {{ "}}" }}' 
       syncPolicy:
         automated:
           prune: true
