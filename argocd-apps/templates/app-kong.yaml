@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kong
+  namespace: argocd
+spec:
+  destination:
+    namespace: kong-argowf
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      ignoreMissingValueFiles: true
+      valueFiles:
+      - values.yaml
+    path: kong-gateway-setup
+    repoURL: git@bitbucket.org:reltio-ondemand/compute-runtime.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

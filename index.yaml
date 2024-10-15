@@ -3,12 +3,12 @@ entries:
   argocd-apps:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-07T23:45:31.892373+05:30"
+    created: "2024-10-15T12:52:44.476647+05:30"
     description: Helm template for a ArgoCD spoke cluster
-    digest: c9bbde2bb228f82b274b104d536b1c7d8641c39867cb5a3e323326189a471d4c
+    digest: 2f564280a0dfb7b5c4311b1c5bef2eaff4a4aa7233ec5d3ff99f31b8293e08ef
     name: argocd-apps
     type: application
     urls:
     - https://itsmekrishv.github.io/argocd-apps/argocd-apps-1.0.0.tgz
     version: 1.0.0
-generated: "2024-10-07T23:45:31.891953+05:30"
+generated: "2024-10-15T12:52:44.476142+05:30"
